@@ -1,1 +1,0 @@
-/home/simon/Documents/autorandr/autorandr/autorandr.py
