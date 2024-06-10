@@ -43,8 +43,8 @@ export BROWSER='firefox'
 # starship prompt
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
-export PATH=$PATH:/home/simon/.local/bin
-export PATH=$PATH:/home/simon/bin
+export PATH="$PATH:/home/simon/.local/bin"
+export PATH="$PATH:/home/simon/bin"
 
 # Zoxide "init"
 eval "$(zoxide init zsh)"
