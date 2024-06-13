@@ -33,6 +33,7 @@ alias gita="git add"
 alias gitc="git commit -m"
 alias gits="git status"
 alias gitp="git push"
+alias s="kitten ssh"
 
 TERM=xterm-color; export TERM
 
