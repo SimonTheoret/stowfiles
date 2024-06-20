@@ -26,7 +26,6 @@ vim.opt.smarttab = true
 vim.opt.expandtab = true
 -- vim.opt.smartindent = true
 vim.opt.nu = true
-vim.opt.textwidth = 80
 vim.opt.autoindent = true
 vim.opt.formatoptions = "tcqjron"
 vim.opt.clipboard = "unnamedplus"
@@ -37,7 +36,7 @@ vim.opt.incsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
-vim.o.conceallevel = 2
+vim.o.conceallevel = 3
 
 vim.opt.swapfile = false
 vim.opt.backup = false

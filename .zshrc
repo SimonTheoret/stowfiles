@@ -35,8 +35,6 @@ alias gits="git status"
 alias gitp="git push"
 alias s="kitten ssh"
 
-TERM=xterm-color; export TERM
-
 # Visual and editor variables:
 export EDITOR='nvim'
 export BROWSER='firefox'
@@ -63,3 +61,20 @@ if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
 else
 	compinit -C;
 fi;
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/simon/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/simon/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/simon/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/simon/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+eval "$(zellij setup --generate-auto-start zsh)"
