@@ -150,22 +150,22 @@
 --         vim.cmd("colorscheme cyberdream")
 --     end
 -- }
-return {
-    'sainnhe/sonokai',
-    lazy = false,
-    priority = 1000,
-    config = function()
-        -- Optionally configure and load the colorscheme
-        -- directly inside the plugin declaration.
-        vim.cmd [[set termguicolors]]
-        vim.g.sonokai_better_performance = 1
-
-        vim.g.sonokai_style = "atlantis"
-        vim.g.sonokai_float_style = "dim"
-        -- vim.g.sonokai_enable_italic = true
-        vim.cmd.colorscheme('sonokai')
-    end
-}
+-- return {
+--     'sainnhe/sonokai',
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--         -- Optionally configure and load the colorscheme
+--         -- directly inside the plugin declaration.
+--         vim.cmd [[set termguicolors]]
+--         vim.g.sonokai_better_performance = 1
+--
+--         vim.g.sonokai_style = "atlantis"
+--         vim.g.sonokai_float_style = "dim"
+--         -- vim.g.sonokai_enable_italic = true
+--         vim.cmd.colorscheme('sonokai')
+--     end
+-- }
 -- return {
 --     'ofirgall/ofirkai.nvim',
 --     lazy = false,
@@ -181,3 +181,12 @@ return {
 --         vim.cmd.colorscheme('ofirkai')
 --     end
 -- }
+return {
+    'polirritmico/monokai-nightasty.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+        vim.opt.background = "dark" -- default to dark or light style
+        vim.cmd.colorscheme("monokai-nightasty")
+    end
+}
