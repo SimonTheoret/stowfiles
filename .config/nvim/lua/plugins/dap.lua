@@ -7,7 +7,7 @@ return {
     },
     config = function()
         local dap = require("dap")
-        dap.configurations.c = {
+        dap.configurations.rust = {
             {
                 name = "Launch",
                 type = "gdb",
