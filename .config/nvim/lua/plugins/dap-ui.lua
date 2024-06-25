@@ -15,9 +15,9 @@ return {
 
             { "<leader>duc", function()
                 require("dapui").close()
-            end desc="Close dapui"},
+            end, desc="Close dapui"},
             { "<leader>dut", function()
                 require("dapui").toggle()
-            end desc="Toggle dapui"},
+            end, desc="Toggle dapui"},
         },
     } }
