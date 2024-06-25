@@ -3,7 +3,6 @@ return {
     tag = '0.1.5',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
-
         local t = require("telescope")
         -- t.setup({
         -- })
@@ -12,7 +11,6 @@ return {
         --         borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
         --     }
         -- })
-        t.load_extension('zoxide')
         t.load_extension('projects')
     end,
     keys = {
@@ -63,21 +61,15 @@ return {
             function() require('telescope.builtin').commands() end,
             desc = "Telescope commands"
         },
-
         {
             '<leader>fp',
             function() require("telescope").extensions.projects.projects {} end,
             desc = 'Telescope projects'
         },
         {
-            '<leader>fz',
-            function() require("telescope").extensions.zoxide.list() end,
-            desc = 'Telescope zoxide'
-        },
-        {
             '<leader>fl',
             function() require("telescope.builtin").current_buffer_fuzzy_find() end,
-            desc = 'Telescope zoxide'
+            desc = 'Telescope current buffer fuzzy'
         },
     }
 }
