@@ -21,11 +21,11 @@ return {
         }
     end,
     keys = {
-        { "<leader>dt", function() require 'dap'.toggle_breakpoint() end, "DAP toggle breakpoint" },
-        { "<leader>dc", function() require 'dap'.continue() end,          "DAP continue" },
-        { "<leader>do", function() require 'dap'.step_over() end,         "DAP step over" },
-        { "<leader>di", function() require 'dap'.step_into() end,         "DAP step into" },
-        { "<leader>dp", function() require 'dap'.repl.open() end,         "DAP open repl" },
+        { "<leader>dt", function() require 'dap'.toggle_breakpoint() end,desc = "DAP toggle breakpoint" },
+        { "<leader>dc", function() require 'dap'.continue() end,         desc = "DAP continue" },
+        { "<leader>do", function() require 'dap'.step_over() end,        desc = "DAP step over" },
+        { "<leader>di", function() require 'dap'.step_into() end,        desc = "DAP step into" },
+        { "<leader>dp", function() require 'dap'.repl.open() end,        desc = "DAP open repl" },
     },
     lazy = true
 }

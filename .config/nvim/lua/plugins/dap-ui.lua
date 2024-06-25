@@ -11,13 +11,13 @@ return {
         keys = {
             { "<leader>duo", function()
                 require("dapui").open()
-            end },
+            end, desc="Open dapui"},
 
             { "<leader>duc", function()
                 require("dapui").close()
-            end },
+            end desc="Close dapui"},
             { "<leader>dut", function()
                 require("dapui").toggle()
-            end },
+            end desc="Toggle dapui"},
         },
     } }
