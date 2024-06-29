@@ -34,6 +34,11 @@ alias gitc="git commit -m"
 alias gits="git status"
 alias gitp="git push"
 alias s="kitten ssh"
+alias rg="rg --color=auto"
+alias grep="grep --color=auto"
+alias ll='eza -alF --icons'
+alias la='eza -A --icons'
+alias l='eza -CF --icons'
 
 # Visual and editor variables:
 export EDITOR='nvim'
