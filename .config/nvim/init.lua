@@ -32,10 +32,6 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.foldlevel = 99
 vim.opt.indentkeys = "0{,0},0),0],:,0#,!^F,O,e"
 
-vim.opt.incsearch = true
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
 vim.o.conceallevel = 3
 
 vim.opt.swapfile = false
@@ -46,6 +42,7 @@ vim.opt.undofile = true
 vim.opt.incsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
+vim.opt.inccommand = "split"
 
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1

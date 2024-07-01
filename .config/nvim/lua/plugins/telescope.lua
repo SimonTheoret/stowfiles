@@ -4,8 +4,14 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
         local t = require("telescope")
-        -- t.setup({
-        -- })
+        t.setup({
+        pickers = {
+            find_files = {theme = "ivy", layout_config = {height=0.4}},
+            git_files = {theme = "ivy", layout_config = {height=0.4}},
+            live_files = {theme = "ivy", layout_config = {height=0.4}},
+            buffers_files = {theme = "ivy", layout_config = {height=0.4}},
+        }
+        })
         -- t.setup({
         --     defaults = {
         --         borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
