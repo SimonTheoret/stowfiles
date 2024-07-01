@@ -169,7 +169,7 @@ return {
                     { desc = "LSP outgoing calls", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>ci', function() require('telescope.builtin').lsp_incoming_calls() end,
-                    { desc = "LSP outgoing calls", buffer = ev.buf })
+                    { desc = "LSP incoming calls", buffer = ev.buf })
             end,
         })
     end,
