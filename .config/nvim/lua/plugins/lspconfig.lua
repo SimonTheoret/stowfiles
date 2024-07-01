@@ -24,8 +24,11 @@ return {
             }
         }
 
-        lspconfig.rust_analyzer.setup { -- rust LSP
+        lspconfig.rust_analyzer.setup({ -- rust LSP
             -- Server-specific settings. See `:help lspconfig-setup`
+            on_attach = function(client, bufnr)
+                vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+            end,
             capabilities = capabilities,
             settings = {
                 ['rust-analyzer'] = {
@@ -37,10 +40,13 @@ return {
                     },
                     check = {
                         command = "clippy"
-                    }
+                    },
+                    cargo = {
+                        features = { "all" },
+                    },
                 },
             },
-        }
+        })
         -- Lua lsp
         lspconfig.lua_ls.setup {
             on_init = function(client)
@@ -170,6 +176,9 @@ return {
 
                 vim.keymap.set('n', '<leader>ci', function() require('telescope.builtin').lsp_incoming_calls() end,
                     { desc = "LSP incoming calls", buffer = ev.buf })
+
+                vim.keymap.set('n', '<leader>ci', function() require('telescope.builtin').diagnostics() end,
+                    { desc = "Telescope diagnostics", buffer = ev.buf })
             end,
         })
     end,
