@@ -16,6 +16,7 @@ return {
                 commands = { theme = "ivy", layout_config = { height = 0.4 } },
                 projects = { theme = "ivy", layout_config = { height = 0.4 } },
                 keymaps = { theme = "ivy", layout_config = { height = 0.4 } },
+                diagnostics = { theme = "ivy", layout_config = { height = 0.4 } },
                 current_buffer_fuzzy_find = { theme = "ivy", layout_config = { height = 0.4 } },
                 lsp_references = { theme = "ivy", layout_config = { height = 0.4 } },
                 lsp_incoming_calls = { theme = "ivy", layout_config = { height = 0.4 } },
