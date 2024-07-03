@@ -41,9 +41,9 @@ return {
                     check = {
                         command = "clippy"
                     },
-                    -- cargo = {
-                    --     features = { "all" },
-                    -- },
+                    cargo = {
+                        allFeatures = true,
+                    },
                 },
             },
         })
