@@ -177,8 +177,12 @@ return {
                 vim.keymap.set('n', '<leader>ci', function() require('telescope.builtin').lsp_incoming_calls() end,
                     { desc = "LSP incoming calls", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>fq', function() require('telescope.builtin').diagnostics() end,
+                vim.eymap.set('n', '<leader>fq', function() require('telescope.builtin').diagnostics() end,
                     { desc = "Telescope diagnostics", buffer = ev.buf })
+
+                vim.keymap.set('n', '<leader>th',
+                    function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
+                    { desc = "Toggle inlay hints", buffer = ev.buf })
             end,
         })
     end,
