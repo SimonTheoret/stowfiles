@@ -50,9 +50,9 @@ layout {
         plugin location="file:~/.config/zellij/plugins/zj-status-bar.wasm"
     }
     pane
-    pane size=2 borderless=false {
-        plugin location="status-bar"
-    }
+    // pane size=2 borderless=false {
+    //     plugin location="status-bar"
+    // }
 }
 // layout {
 //     default_tab_template {
