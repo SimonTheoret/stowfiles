@@ -4,7 +4,7 @@ keybinds clear-defaults=true {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
-        bind "Ctrl a" { SwitchToMode "Move"; }
+        // bind "Ctrl a" { SwitchToMode "Move"; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
@@ -184,6 +184,57 @@ keybinds clear-defaults=true {
     }
     shared_except "tmux" "locked" {
         bind "Ctrl z" { SwitchToMode "Tmux"; }
+    }
+    shared_except "locked" {
+        bind "Ctrl y" {
+            LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij_forgot.wasm" {
+                "LOAD_ZELLIJ_BINDINGS" "false"
+                floating true
+                move_to_focused_tab true
+                "lock"                  "ctrl + g"
+                "unlock"                "ctrl + g"
+                "new pane"              "ctrl + p + n"
+                "change focus of pane"  "ctrl + p + arrow key"
+                "close pane"            "ctrl + p + x"
+                "rename pane"           "ctrl + p + c"
+                "toggle fullscreen"     "ctrl + p + f"
+                "toggle floating pane"  "ctrl + p + w"
+                "toggle embed pane"     "ctrl + p + e"
+                "choose right pane"     "ctrl + p + l"
+                "choose left pane"      "ctrl + p + r"
+                "choose upper pane"     "ctrl + p + k"
+                "choose lower pane"     "ctrl + p + j"
+                "new tab"               "ctrl + t + n"
+                "close tab"             "ctrl + t + x"
+                "change focus of tab"   "ctrl + t + arrow key"
+                "rename tab"            "ctrl + t + r"
+                "sync tab"              "ctrl + t + s"
+                "brake pane to new tab" "ctrl + t + b"
+                "brake pane left"       "ctrl + t + ["
+                "brake pane right"      "ctrl + t + ]"
+                "toggle tab"            "ctrl + t + tab"
+                "increase pane size"    "ctrl + n + +"
+                "decrease pane size"    "ctrl + n + -"
+                "increase pane top"     "ctrl + n + k"
+                "increase pane right"   "ctrl + n + l"
+                "increase pane bottom"  "ctrl + n + j"
+                "increase pane left"    "ctrl + n + h"
+                "decrease pane top"     "ctrl + n + K"
+                "decrease pane right"   "ctrl + n + L"
+                "decrease pane bottom"  "ctrl + n + J"
+                "decrease pane left"    "ctrl + n + H"
+                "move pane to top"      "ctrl + a + k"
+                "move pane to right"    "ctrl + a + l"
+                "move pane to bottom"   "ctrl + a + j"
+                "move pane to left"     "ctrl + a + h"
+                "search"                "ctrl + s + s"
+                "go into edit mode"     "ctrl + s + e"
+                "detach session"        "ctrl + b + w"
+                "open session manager"  "ctrl + b + w"
+                "tmux mode"             "ctrl + z"
+                "quit zellij"           "ctrl + q"
+            }
+        }
     }
 }
 
