@@ -26,8 +26,11 @@ return {
                 -- bash
                 null_ls.builtins.formatting.shfmt,
 
-                --Makefiles
+                --cmake
                 null_ls.builtins.formatting.cmake_format,
+
+                --c/c++
+                null_ls.builtins.formatting.clang_format
             }
         })
     end,
