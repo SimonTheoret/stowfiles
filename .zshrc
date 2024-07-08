@@ -39,6 +39,9 @@ eval "$(starship init zsh)"
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(direnv hook zsh)"
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 #
 # # poetry completion
 fpath+=~/.zfunc
