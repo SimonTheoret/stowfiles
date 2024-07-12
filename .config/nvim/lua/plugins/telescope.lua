@@ -27,6 +27,16 @@ return {
                 lsp_lsp_implementations = { theme = "ivy", layout_config = { height = 0.4 } },
                 lsp_definitions = { theme = "ivy", layout_config = { height = 0.4 } },
                 lsp_type_definitions = { theme = "ivy", layout_config = { height = 0.4 } },
+            },
+
+            extensions = {
+                fzf = {
+                    fuzzy = true,                   -- false will only do exact matching
+                    override_generic_sorter = true, -- override the generic sorter
+                    override_file_sorter = true,    -- override the file sorter
+                    case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+                    -- the default case_mode is "smart_case"
+                }
             }
         })
         -- t.setup({
@@ -35,6 +45,7 @@ return {
         --     }
         -- })
         t.load_extension('projects')
+        t.load_extension('fzf')
     end,
     keys = {
         {
