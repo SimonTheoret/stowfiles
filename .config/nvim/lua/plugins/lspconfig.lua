@@ -44,6 +44,9 @@ return {
                     cargo = {
                         allFeatures = true,
                     },
+                    files = {
+                        excludeDirs = { os.getenv("HOME").."/.cargo" }
+                    }
                 },
             },
         })
