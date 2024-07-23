@@ -9,12 +9,12 @@
 
 (use-package
   dired-rsync
-  :bind (:map dired-mode-map ("C-c C-r" . dired-rsync)))
+  :bind (:map dired-mode-map ("<leader> r r" . dired-rsync)))
 
 (use-package
   dired-rsync-transient
   :bind
-  (:map dired-mode-map ("C-c C-x" . dired-rsync-transient)))
+  (:map dired-mode-map ("<leader> r t" . dired-rsync-transient)))
 
 (use-package casual-dired)
 
@@ -56,7 +56,7 @@
   'normal
   :keymaps 'dired-mode-map
   "C-o"
-  '("Casual dired" .  casual-dired-tmenu)
+  '("casual dired" .  casual-dired-tmenu)
   )
 
 

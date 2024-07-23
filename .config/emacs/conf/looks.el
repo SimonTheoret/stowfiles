@@ -33,14 +33,18 @@
 ;;   (all-the-icons-completion-mode)
 ;;   (add-hook 'marginalia-mode-hook #'all-the-icons-completion-marginalia-setup))
 
+(use-package all-the-icons
+  :if (display-graphic-p))
 ;; (use-package all-the-icons-dired
 ;;   :after all-the-icons
-;;   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+  ;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 
 (use-package nerd-icons)
 (use-package nerd-icons-dired
-  :hook
-  (dired-mode . nerd-icons-dired-mode))
+  :init
+  (nerd-icons-dired-mode))
+  ;; :hook
+  ;; (dired-mode . nerd-icons-dired-mode))
 
 
 ;; THe essential modeline
@@ -73,9 +77,11 @@
   :init
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-(use-package nerd-icons-ibuffer
-  :hook (ibuffer-mode . nerd-icons-ibuffer-mode))
+;; (use-package nerd-icons-ibuffer
+;;   :hook (ibuffer-mode . nerd-icons-ibuffer-mode))
 
+;; Currently broken: https://github.com/rainstormstudio/nerd-icons-completion/issues/11
+;; TODO: Update this package
 (use-package nerd-icons-completion
   :after marginalia
   :config

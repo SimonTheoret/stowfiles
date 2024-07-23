@@ -29,7 +29,8 @@
   ;; (lsp-ui-peek-enable)
   ;; (lsp-ui-doc-enable)
   ;; (setq lsp-ui-doc-show-with-cursor t)
-  (setq lsp-ui-doc-position 'at-point)
+  (setq lsp-ui-doc-position 'bottom)
+  (setq lsp-inlay-hint-enable t)
   ;; (setq lsp-ui-doc-include-signature t)
   ;; (setq lsp-ui-doc-max-height 8)
   ;; :global/:workspace/:file
@@ -73,6 +74,8 @@
   '("Rename" . lsp-rename)
   "f"
   '("Format buffer" . format-all-buffer)
+  "h"
+  '("Toggle hinlay" . lsp-inlay-hints-mode)
   )
 
 ;; This function filters any diagnostics coming from the virtual env of python
@@ -148,20 +151,15 @@
      (lsp-deferred)))) ; or lsp-deferred
 
 ;; Rust
-
-(use-package rust-mode ;; This mode is only here to make rustic use treesitter!
-  :init
-  (setq rust-mode-treesitter-derive t)
-  )
-
 (use-package rustic
-  ;; :straight (rustic :type git :host github :repo "brotzeit/rustic" :branch "rustic-ts-mode") ;; Gives treesitter integration
+  :straight (rustic :type git :host github :repo "emacs-rustic/rustic") ;; Gives treesitter integration
   ;;   :mode "\\.rs\\'"
   ;; :hook
   ;; (rust-mode . rustic-mode)
   ;; (rustic-mode . lsp)
   :init
   (setq-default lsp-rust-analyzer-cargo-watch-command "clippy")
+  (setq-default lsp-rust-all-features t)
   ;; (setq rust-mode-treesitter-derive t)
   ;; (add-to-list 'org-src-lang-modes '("rust" . rustic) )
   )

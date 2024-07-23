@@ -70,7 +70,7 @@
 
 (use-package
   which-key
-  :config (which-key-mode) (setq which-key-idle-delay 0.2))
+  :config (which-key-mode) (setq which-key-idle-delay 0.1))
 
 (use-package expreg)
 
