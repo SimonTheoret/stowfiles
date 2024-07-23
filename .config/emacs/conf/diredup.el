@@ -56,7 +56,7 @@
   'normal
   :keymaps 'dired-mode-map
   "C-o"
-  '("casual dired" .  casual-dired-tmenu)
+  '("Casual dired" .  casual-dired-tmenu)
   )
 
 
