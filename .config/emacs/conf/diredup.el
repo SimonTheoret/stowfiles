@@ -17,7 +17,7 @@
   (:map dired-mode-map ("<leader> r t" . dired-rsync-transient)))
 
 (use-package casual-dired)
-
+(dired-async-mode)
 
 (defun search-emacs-dir ()
   (interactive)

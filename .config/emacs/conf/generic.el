@@ -12,11 +12,14 @@
 
 ;; font
 ;; (set-frame-font "JetBrainsMono Nerd Font Mono 100" nil t)
+
+
+
 (if (string= "laptop" (system-name))
     (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-14"))
-  (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNLNerdFontMono-13")))
+  (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNLNerdFontMono-13"))
+  )
 
-;; (add-to-list 'default-frame-alist '(font . "FiraCode Nerd Font-11"))
 
 ;; Scrolling
 (pixel-scroll-mode 1)
@@ -46,7 +49,7 @@
 ;; aggressively mouse scrolling a document or rely on your keyboard’s
 ;; auto repeat feature. For most of us, myself included, it’s probably
 ;; a no-brainer to switch it on.
-(setq redisplay-dont-pause t)
+(setq redisplay-dont-pause nil)
 
 (add-hook 'text-mode-hook #'auto-fill-mode)
 

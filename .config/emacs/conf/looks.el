@@ -8,9 +8,10 @@
 ;; (use-package smooth-scrolling
 ;;   :init
 ;;   (smooth-scrolling-mode 1))
-(set-frame-parameter nil 'alpha-background 70)
-
-(add-to-list 'default-frame-alist '(alpha-background . 70))
+(if (string= "gnu/linux" system-type )
+    (set-frame-parameter nil 'alpha-background 70)
+     (add-to-list 'default-frame-alist '(alpha-background . 70))
+  )
 
 ;; Theme
 (use-package doom-themes
@@ -37,17 +38,17 @@
   :if (display-graphic-p))
 ;; (use-package all-the-icons-dired
 ;;   :after all-the-icons
-  ;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+;; (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 
 (use-package nerd-icons)
 (use-package nerd-icons-dired
   :init
   (nerd-icons-dired-mode))
-  ;; :hook
-  ;; (dired-mode . nerd-icons-dired-mode))
+;; :hook
+;; (dired-mode . nerd-icons-dired-mode))
 
 
-;; THe essential modeline
+;; The essential modeline
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode))
 
@@ -92,18 +93,18 @@
 (use-package ligature
   :config
   (ligature-set-ligatures 'prog-mode '("--" "---" "==" "===" "!=" "!==" "=!="
-                              "=:=" "=/=" "<=" ">=" "&&" "&&&" "&=" "++" "+++" "***" ";;" "!!"
-                              "??" "???" "?:" "?." "?=" "<:" ":<" ":>" ">:" "<:<" "<>" "<<<" ">>>"
-                              "<<" ">>" "||" "-|" "_|_" "|-" "||-" "|=" "||=" "##" "###" "####"
-                              "#{" "#[" "]#" "#(" "#?" "#_" "#_(" "#:" "#!" "#=" "^=" "<$>" "<$"
-                              "$>" "<+>" "<+" "+>" "<*>" "<*" "*>" "</" "</>" "/>" "<!--" "<#--"
-                              "-->" "->" "->>" "<<-" "<-" "<=<" "=<<" "<<=" "<==" "<=>" "<==>"
-                              "==>" "=>" "=>>" ">=>" ">>=" ">>-" ">-" "-<" "-<<" ">->" "<-<" "<-|"
-                              "<=|" "|=>" "|->" "<->" "<~~" "<~" "<~>" "~~" "~~>" "~>" "~-" "-~"
-                              "~@" "[||]" "|]" "[|" "|}" "{|" "[<" ">]" "|>" "<|" "||>" "<||"
-                              "|||>" "<|||" "<|>" "..." ".." ".=" "..<" ".?" "::" ":::" ":=" "::="
-                              ":?" ":?>" "//" "///" "/*" "*/" "/=" "//=" "/==" "@_" "__" "???"
-                              "<:<" ";;;"))
+				       "=:=" "=/=" "<=" ">=" "&&" "&&&" "&=" "++" "+++" "***" ";;" "!!"
+				       "??" "???" "?:" "?." "?=" "<:" ":<" ":>" ">:" "<:<" "<>" "<<<" ">>>"
+				       "<<" ">>" "||" "-|" "_|_" "|-" "||-" "|=" "||=" "##" "###" "####"
+				       "#{" "#[" "]#" "#(" "#?" "#_" "#_(" "#:" "#!" "#=" "^=" "<$>" "<$"
+				       "$>" "<+>" "<+" "+>" "<*>" "<*" "*>" "</" "</>" "/>" "<!--" "<#--"
+				       "-->" "->" "->>" "<<-" "<-" "<=<" "=<<" "<<=" "<==" "<=>" "<==>"
+				       "==>" "=>" "=>>" ">=>" ">>=" ">>-" ">-" "-<" "-<<" ">->" "<-<" "<-|"
+				       "<=|" "|=>" "|->" "<->" "<~~" "<~" "<~>" "~~" "~~>" "~>" "~-" "-~"
+				       "~@" "[||]" "|]" "[|" "|}" "{|" "[<" ">]" "|>" "<|" "||>" "<||"
+				       "|||>" "<|||" "<|>" "..." ".." ".=" "..<" ".?" "::" ":::" ":=" "::="
+				       ":?" ":?>" "//" "///" "/*" "*/" "/=" "//=" "/==" "@_" "__" "???"
+				       "<:<" ";;;"))
   (global-ligature-mode t))
 
 (use-package writeroom-mode

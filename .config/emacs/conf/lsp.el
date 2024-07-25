@@ -150,6 +150,13 @@
      (require 'lsp-pyright)
      (lsp-deferred)))) ; or lsp-deferred
 
+(with-eval-after-load 'lsp-mode
+(lsp-register-client
+ (make-lsp-client :new-connection (lsp-tramp-connection "pyright")
+                  :major-modes '(python-mode)
+                  :remote? t
+                  :server-id 'pyright-remote)))
+
 ;; Rust
 (use-package rustic
   :straight (rustic :type git :host github :repo "emacs-rustic/rustic") ;; Gives treesitter integration

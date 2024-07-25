@@ -17,8 +17,9 @@
     "<tab>" #'company-complete-common-or-cycle
     "RET" #'newline
     "<return>" #'newline
-    "C-<return>" #'company-complete-selection))
-
+    "C-<return>" #'company-complete-selection
+    "C-b" #'company-complete-selection
+    ))
 ;; (evil-global-set-key 'insert (kbd "TAB") 'company-select-next)
 ;; (evil-global-set-key 'insert (kbd "S-TAB") 'company-select-previous)
 ;; (evil-global-set-key 'insert (kbd "C-RET") 'company-complete-common))

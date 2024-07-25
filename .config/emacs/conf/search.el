@@ -159,6 +159,8 @@
   '("Search and replace" . query-replace)
   "t"
   '("Search todos in buffers" . consult-todo-all)
+  "h"
+  '("Hide lines" . consult-focus-lines)
   )
 
 (general-def
