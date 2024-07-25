@@ -10,7 +10,7 @@
 ;;   (smooth-scrolling-mode 1))
 (if (string= "gnu/linux" system-type )
     (set-frame-parameter nil 'alpha-background 70)
-     (add-to-list 'default-frame-alist '(alpha-background . 70))
+  (add-to-list 'default-frame-alist '(alpha-background . 70))
   )
 
 ;; Theme
@@ -84,6 +84,7 @@
 ;; Currently broken: https://github.com/rainstormstudio/nerd-icons-completion/issues/11
 ;; TODO: Update this package
 (use-package nerd-icons-completion
+  :straight(nerd-icons-completion :type git :host github :repo "SimonTheoret/nerd-icons-completion" )
   :after marginalia
   :config
   (nerd-icons-completion-mode)
