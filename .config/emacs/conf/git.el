@@ -7,6 +7,8 @@
 (use-package
   magit
   :after evil-collection
+  :config
+ (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1) 
   :general-config
   (general-def
     :states 'normal
