@@ -10,6 +10,12 @@
 (add-hook 'go-ts-mode (apply-partially #'change-compile-command "go "))
 (add-hook 'sh-mode (apply-partially #'change-compile-command "bash "))
 
+(use-package fancy-compilation
+  :commands (fancy-compilation-mode))
+
+(with-eval-after-load 'compile
+  (fancy-compilation-mode))
+
 (general-def
   :states
   'normal
@@ -20,3 +26,4 @@
   "r"
   '("recompile" . recompile)
   )
+

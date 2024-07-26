@@ -81,6 +81,12 @@
 (general-def
   :states
   'normal
+  "<leader> w"
+  '("Jump to word" . avy-goto-word-0)
+  )
+(general-def
+  :states
+  'normal
   :prefix "<leader> e"
   :prefix-command 'Eval
   "b"

@@ -64,7 +64,9 @@
 
 (use-package
   orderless
-  :custom (completion-styles '(orderless basic))
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil)
   (completion-category-overrides
    '((file (styles basic partial-completion)))))
 
@@ -136,6 +138,8 @@
 
 (use-package tldr)
 
+(use-package deadgrep)
+
 (general-def
   :states
   'normal
@@ -161,6 +165,8 @@
   '("Search todos in buffers" . consult-todo-all)
   "h"
   '("Hide lines" . consult-focus-lines)
+  "r"
+  '("Deadgrep" . deadgrep)
   )
 
 (general-def

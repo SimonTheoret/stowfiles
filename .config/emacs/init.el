@@ -5,7 +5,7 @@
   "Loads and runs the file contained in the directory user-emacs-directory/conf"
   (let ((path (concat user-emacs-directory "conf/" content ".el")))
     (load(locate-user-emacs-file path))))
-
+()
 
 ;; Immediate loading
 (add-to-list 'load-path (concat user-emacs-directory "conf/"))
@@ -43,6 +43,7 @@
 (config-load-file-no-extension "compi")
 (config-load-file-no-extension "spelling")
 (config-load-file-no-extension "envir")
+(config-load-file-no-extension "projdeploy")
 ;; (config-load-file-no-extension "email")
 (config-load-file-no-extension "dock")
 (config-load-file-no-extension "typeoffiles")
@@ -52,12 +53,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(safe-local-variable-values
-   '((eval setq consult-ripgrep-args
-	   (concat consult-ripgrep-args " -L --hidden "))
+   '((deadgrep-extra-arguments quote
+			       ("--no-config --L --hidden"))
      (eval setq consult-ripgrep-args
-	   (concat consult-ripgrep-args " -L"))
-     (consult-ripgrep-args concat consult-ripgrep-args " -L")
-     (concat consult-ripgrep-args . " -L"))))
+	   (concat consult-ripgrep-args " -L --hidden ")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

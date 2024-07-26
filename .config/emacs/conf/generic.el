@@ -17,7 +17,10 @@
 
 (if (string= "laptop" (system-name))
     (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-14"))
-    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNLNerdFontMono-13"))
+  (if (string= "darwin" system-type)
+    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL NerdFont Mono-13"))
+    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-13"))
+    )
   )
 
 

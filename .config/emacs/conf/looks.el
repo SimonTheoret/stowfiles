@@ -47,6 +47,8 @@
 ;; :hook
 ;; (dired-mode . nerd-icons-dired-mode))
 
+(setq kind-icon-default-style `(:padding -1 :stroke 0 :margin 0 :radius 0 :scale 1.0 :height 0.85))
+;; make sure icons fit with scaled text. Use for corfu
 
 ;; The essential modeline
 (use-package doom-modeline
@@ -90,6 +92,21 @@
   (nerd-icons-completion-mode)
   (add-hook 'marginalia-mode-hook #'nerd-icons-completion-marginalia-setup))
 
+(use-package nerd-icons-corfu
+  :init
+  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter)
+
+  ;; Optionally:
+  (setq nerd-icons-corfu-mapping
+	'((array :style "cod" :icon "symbol_array" :face font-lock-type-face)
+          (boolean :style "cod" :icon "symbol_boolean" :face font-lock-builtin-face)
+          ;; ...
+          (t :style "cod" :icon "code" :face font-lock-warning-face)))
+  ;; Remember to add an entry for `t', the library uses that as default.
+
+  ;; The Custom interface is also supported for tuning the variable above.
+
+  )
 
 (use-package ligature
   :config
