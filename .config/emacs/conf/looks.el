@@ -8,11 +8,15 @@
 ;; (use-package smooth-scrolling
 ;;   :init
 ;;   (smooth-scrolling-mode 1))
-(if (string= "gnu/linux" system-type )
-    (set-frame-parameter nil 'alpha-background 70)
+(defun frame-transparency ()
+  """"""
+  (set-frame-parameter nil 'alpha-background 70)
   (add-to-list 'default-frame-alist '(alpha-background . 70))
   )
 
+(if (string= "gnu/linux" system-type)
+    (frame-transparency)
+  )
 ;; Theme
 (use-package doom-themes
   :config
@@ -49,24 +53,34 @@
 
 ;; The essential modeline
 (use-package doom-modeline
-  :hook (after-init . doom-modeline-mode))
+ :hook (after-init . doom-modeline-mode))
 
-;; Noice splash screen
+;; use-package with package.el:
 (use-package dashboard
-  :after (nerd-icons org)
+  :ensure t
   :init
-  (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*") ;; does not collide with magit
-				(dashboard-mode)
-				(dashboard-insert-startupify-lists)
-				(dashboard-refresh-buffer)))
-  (setq dashboard-display-icons-p t) ;; display icons on both GUI and terminal
-  (setq dashboard-icon-type 'nerd-icons) ;; use `nerd-icons' package
-  (setq dashboard-startup-banner (concat user-emacs-directory "true.png"))
-  (setq dashboard-center-content t)
+  (setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
   :config
   (dashboard-setup-startup-hook)
-  (dashboard-refresh-buffer)
+  (setq dashboard-startup-banner (concat user-emacs-directory "true.png"))
+  (setq dashboard-center-content t)
   )
+
+;; Noice splash screen
+;; (use-package dashboard
+;;   :after (nerd-icons org)
+;;   :init
+;;   (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*") ;; does not collide with magit
+;; 				(dashboard-mode)
+;; 				(dashboard-insert-startupify-lists)
+;; 				(dashboard-refresh-buffer)))
+;;   (setq dashboard-display-icons-p t) ;; display icons on both GUI and terminal
+;;   (setq dashboard-icon-type 'nerd-icons) ;; use `nerd-icons' package
+;;   (setq dashboard-center-content t)
+;;   :config
+;;   (dashboard-setup-startup-hook)
+;;   (dashboard-refresh-buffer)
+;;   )
 
 ;; cute aestethic plugin
 (use-package solaire-mode
