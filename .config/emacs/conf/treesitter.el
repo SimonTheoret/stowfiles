@@ -22,10 +22,13 @@
 ;; (treesit-install-language-grammar 'go)
 ;; (treesit-install-language-grammar 'python)
 
+(setq treesit-font-lock-level 4)
+(treesit-font-lock-recompute-features)
+
 (setq major-mode-remap-alist
       '((python-mode . python-ts-mode)
-	(rust-mode . rustic-mode)
-	(rust-ts-mode . rustic-mode)
+	(rust-mode . rust-ts-mode)
+	;; (rust-ts-mode . rustic-mode)
 	(go-mode . go-ts-mode)
 	(dockerfile-mode . dockerfile-ts-mode)))
 
@@ -33,7 +36,9 @@
   "Modify font lock level in Tree-sitter."
   (interactive "nEnter level: ")
   (setq treesit-font-lock-level level)
-  (treesit-font-lock-recompute-features))
+  (treesit-font-lock-recompute-features)
+  (font-lock-debug-fontify)
+  )
 
 (defun set-python-colors ()
   (setq treesit-font-lock-feature-list
@@ -59,8 +64,8 @@
 	)
   (treesit-font-lock-recompute-features))
 
-(add-hook 'python-mode-hook #'set-python-colors)
-(add-hook 'python-ts-mode-hook #'set-python-colors)
+;; (add-hook 'python-mode-hook #'set-python-colors)
+;; (add-hook 'python-ts-mode-hook #'set-python-colors)
 
-(add-hook 'rustic-mode-hook #'set-rust-colors)
-(add-hook 'rustic-ts-mode-hook #'set-rust-colors)
+;; (add-hook 'rustic-mode-hook #'set-rust-colors)
+;; (add-hook 'rustic-ts-mode-hook #'set-rust-colors)

@@ -12,18 +12,18 @@
   ( ;; replace XXX-mode with concrete major-mode(e. g. python--tsmode)
    (python-ts-mode . lsp-deferred)
    (go-ts-mode . lsp-deferred)
+   (rust-ts-mode . lsp-deferred)
    ;; if you want which-key integration
    (lsp-mode . lsp-enable-which-key-integration)
    (LaTeX-mode . lsp-deferred)
    (nix-mode . lsp-deferred)
-   (rustic-mode . lsp-deferred)
    (kill-emacs . lsp-workspace-remove-all-folders)
    )
   :commands (lsp lsp-deferred)
   :config
 
   (setq lsp-ui-sideline-show-code-actions t)
-  (setq lsp-headerline-breadcrumb-enable nil)
+  (setq lsp-headerline-breadcrumb-enable t)
   (setq lsp-lens-enable nil)
   (lsp-signature-mode t)
   ;; (lsp-ui-peek-enable)
@@ -31,7 +31,8 @@
   ;; (setq lsp-ui-doc-show-with-cursor t)
   (setq lsp-ui-doc-position 'bottom)
   (setq lsp-inlay-hint-enable t)
-  ;; (setq lsp-ui-doc-include-signature t)
+  (setq lsp-headerline-breadcrumb-segments '(symbols))
+  (setq lsp-ui-doc-include-signature t)
   ;; (setq lsp-ui-doc-max-height 8)
   ;; :global/:workspace/:file
   (setq lsp-modeline-diagnostics-scope :workspace)
@@ -75,7 +76,7 @@
   "f"
   '("Format buffer" . format-all-buffer)
   "h"
-  '("Toggle hinlay" . lsp-inlay-hints-mode)
+  '("Toggle inlay" . lsp-inlay-hints-mode)
   )
 
 ;; This function filters any diagnostics coming from the virtual env of python
@@ -157,19 +158,26 @@
                   :remote? t
                   :server-id 'pyright-remote)))
 
-;; Rust
-(use-package rustic
-  :straight (rustic :type git :host github :repo "emacs-rustic/rustic") ;; Gives treesitter integration
-  ;;   :mode "\\.rs\\'"
-  ;; :hook
-  ;; (rust-mode . rustic-mode)
-  ;; (rustic-mode . lsp)
+(use-package rust-mode
+  :mode "\\.rs\\'"
   :init
-  (setq-default lsp-rust-analyzer-cargo-watch-command "clippy")
-  (setq-default lsp-rust-all-features t)
-  ;; (setq rust-mode-treesitter-derive t)
-  ;; (add-to-list 'org-src-lang-modes '("rust" . rustic) )
+  (setq rust-mode-treesitter-derrive t)
+  (setq lsp-rust-analyzer-cargo-watch-command t)
   )
+
+
+;; Rust
+;; (use-package rustic
+;;   ;;   :mode "\\.rs\\'"
+;;   ;; :hook
+;;   ;; (rust-mode . rustic-mode)
+;;   ;; (rustic-mode . lsp)
+;;   :init
+;;   (setq-default lsp-rust-analyzer-cargo-watch-command "clippy")
+;;   (setq-default lsp-rust-all-features t)
+;;   ;; (setq rust-mode-treesitter-derive t)
+;;   ;; (add-to-list 'org-src-lang-modes '("rust" . rustic) )
+;;   )
 
 
 ;; Latex
