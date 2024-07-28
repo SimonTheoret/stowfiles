@@ -10,9 +10,10 @@
   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
   :hook
   ( ;; replace XXX-mode with concrete major-mode(e. g. python--tsmode)
-   (python-ts-mode . lsp-deferred)
+   ;; (python-ts-mode . lsp-deferred) ;;already taken care of
    (go-ts-mode . lsp-deferred)
-   (rust-ts-mode . lsp-deferred)
+   (rust-ts-mode . lsp-deferred) ;;already taken care of
+   ;;(rustic-mode . lsp-deferred) ;;already taken care of
    ;; if you want which-key integration
    (lsp-mode . lsp-enable-which-key-integration)
    (LaTeX-mode . lsp-deferred)
@@ -23,16 +24,18 @@
   :config
 
   (setq lsp-ui-sideline-show-code-actions t)
-  (setq lsp-headerline-breadcrumb-enable t)
+  (setq lsp-headerline-breadcrumb-enable nil)
   (setq lsp-lens-enable nil)
   (lsp-signature-mode t)
-  ;; (lsp-ui-peek-enable)
-  ;; (lsp-ui-doc-enable)
+  (lsp-ui-peek-enable t)
+  (lsp-ui-doc-enable nil)
+  (setq lsp-eldoc-enable-hover t)
+  (setq lsp-signature-auto-activate t)
+  (setq lsp-signature-render-documentation nil)
   ;; (setq lsp-ui-doc-show-with-cursor t)
-  (setq lsp-ui-doc-position 'bottom)
-  (setq lsp-inlay-hint-enable t)
-  (setq lsp-headerline-breadcrumb-segments '(symbols))
-  (setq lsp-ui-doc-include-signature t)
+  ;; (setq lsp-ui-doc-position 'at-point)
+  ;; (setq lsp-headerline-breadcrumb-segments '(symbols))
+  ;; (setq lsp-ui-doc-include-signature t)
   ;; (setq lsp-ui-doc-max-height 8)
   ;; :global/:workspace/:file
   (setq lsp-modeline-diagnostics-scope :workspace)
@@ -43,12 +46,12 @@
 ;; Make the help buffer smaller
 (add-to-list 'display-buffer-alist
              '((lambda (buffer _) (with-current-buffer buffer
-                               (seq-some (lambda (mode)
+			       (seq-some (lambda (mode)
                                            (derived-mode-p mode))
                                          '(help-mode))))
-               (display-buffer-reuse-window display-buffer-below-selected)
-               (reusable-frames . visible)
-               (window-height . 0.33)))
+	       (display-buffer-reuse-window display-buffer-below-selected)
+	       (reusable-frames . visible)
+	       (window-height . 0.33)))
 
 (general-def
   :states
@@ -67,8 +70,6 @@
   '("Find declaration" . lsp-find-declaration)
   "b"
   '("Open doc in buffer" . lsp-describe-thing-at-point)
-  "k"
-  '("Describe" . lsp-ui-doc-glance)
   "r"
   '("Find reference" . lsp-ui-peek-find-references)
   "n"
@@ -76,7 +77,7 @@
   "f"
   '("Format buffer" . format-all-buffer)
   "h"
-  '("Toggle inlay" . lsp-inlay-hints-mode)
+  '("Toggle inlay" . (lambda () (progn (setq lsp-inlay-hint-enable t)(lsp-inlay-hints-mode))))
   )
 
 ;; This function filters any diagnostics coming from the virtual env of python
@@ -152,32 +153,24 @@
      (lsp-deferred)))) ; or lsp-deferred
 
 (with-eval-after-load 'lsp-mode
-(lsp-register-client
- (make-lsp-client :new-connection (lsp-tramp-connection "pyright")
-                  :major-modes '(python-mode)
-                  :remote? t
-                  :server-id 'pyright-remote)))
-
-(use-package rust-mode
-  :mode "\\.rs\\'"
-  :init
-  (setq rust-mode-treesitter-derrive t)
-  (setq lsp-rust-analyzer-cargo-watch-command t)
-  )
-
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-tramp-connection "pyright")
+                    :major-modes '(python-mode)
+                    :remote? t
+                    :server-id 'pyright-remote)))
 
 ;; Rust
-;; (use-package rustic
-;;   ;;   :mode "\\.rs\\'"
-;;   ;; :hook
-;;   ;; (rust-mode . rustic-mode)
-;;   ;; (rustic-mode . lsp)
-;;   :init
-;;   (setq-default lsp-rust-analyzer-cargo-watch-command "clippy")
-;;   (setq-default lsp-rust-all-features t)
-;;   ;; (setq rust-mode-treesitter-derive t)
-;;   ;; (add-to-list 'org-src-lang-modes '("rust" . rustic) )
-;;   )
+(use-package rust-mode
+  ;;   :mode "\\.rs\\'"
+  ;; :hook
+  ;; (rust-mode . rustic-mode)
+  ;; (rustic-mode . lsp)
+  :init
+  (setq-default lsp-rust-analyzer-cargo-watch-command "clippy")
+  (setq-default lsp-rust-all-features t)
+  (setq rust-mode-treesitter-derive t)
+  ;; (add-to-list 'org-src-lang-modes '("rust" . rustic) )
+  )
 
 
 ;; Latex
