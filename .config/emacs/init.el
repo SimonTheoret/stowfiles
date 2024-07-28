@@ -11,6 +11,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "conf/"))
 ;;--------- Does not require packages.el -----------;;
 (config-load-file-no-extension "generic")
+
 (load (locate-user-emacs-file "packages.el"))
 
 ;;--------- Does require packages.el -----------;;
@@ -44,9 +45,9 @@
 (config-load-file-no-extension "spelling")
 (config-load-file-no-extension "envir")
 (config-load-file-no-extension "projdeploy")
-;; (config-load-file-no-extension "email")
 (config-load-file-no-extension "dock")
 (config-load-file-no-extension "typeoffiles")
+;; (config-load-file-no-extension "email")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
