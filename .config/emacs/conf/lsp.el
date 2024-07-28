@@ -32,6 +32,7 @@
   (setq lsp-eldoc-enable-hover t)
   (setq lsp-signature-auto-activate t)
   (setq lsp-signature-render-documentation nil)
+  (setq lsp-ui-doc-use-childframe nil)
   ;; (setq lsp-ui-doc-show-with-cursor t)
   ;; (setq lsp-ui-doc-position 'at-point)
   ;; (setq lsp-headerline-breadcrumb-segments '(symbols))
@@ -77,7 +78,9 @@
   "f"
   '("Format buffer" . format-all-buffer)
   "h"
-  '("Toggle inlay" . (lambda () (progn (setq lsp-inlay-hint-enable t)(lsp-inlay-hints-mode))))
+  '("Toggle inlay" . (lambda () (interactive)(progn (setq lsp-inlay-hint-enable t)(lsp-inlay-hints-mode))))
+  "k"
+  '("Describe" . lsp-ui-doc-glance)
   )
 
 ;; This function filters any diagnostics coming from the virtual env of python
