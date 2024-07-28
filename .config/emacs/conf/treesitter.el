@@ -22,13 +22,12 @@
 ;; (treesit-install-language-grammar 'go)
 ;; (treesit-install-language-grammar 'python)
 
-(setq treesit-font-lock-level 4)
+(setq treesit-font-lock-level 3)
 (treesit-font-lock-recompute-features)
 
 (setq major-mode-remap-alist
       '((python-mode . python-ts-mode)
 	(rust-mode . rust-ts-mode)
-	;; (rust-ts-mode . rustic-mode)
 	(go-mode . go-ts-mode)
 	(dockerfile-mode . dockerfile-ts-mode)))
 
@@ -65,7 +64,7 @@
   (treesit-font-lock-recompute-features))
 
 ;; (add-hook 'python-mode-hook #'set-python-colors)
-;; (add-hook 'python-ts-mode-hook #'set-python-colors)
+(add-hook 'python-ts-mode-hook #'set-python-colors)
 
-;; (add-hook 'rustic-mode-hook #'set-rust-colors)
+(add-hook 'rust-ts-mode-hook #'set-rust-colors)
 ;; (add-hook 'rustic-ts-mode-hook #'set-rust-colors)
