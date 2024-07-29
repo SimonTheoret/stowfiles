@@ -18,7 +18,7 @@
 (if (string= "laptop" (system-name))
     (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-14"))
   (if (string= "darwin" system-type)
-    (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL NerdFont Mono-13"))
+      (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL NerdFont Mono-13"))
     (add-to-list 'default-frame-alist '(font . "JetBrainsMonoNL Nerd Font Mono-13"))
     )
   )
@@ -64,3 +64,10 @@
 
 (setq auto-save-file-name-transforms
       `((".*" ,(format "%sbackups" user-emacs-directory) t)))
+
+(defun revert-buffer-fontify()
+  (interactive)
+  (revert-buffer)
+  (font-lock-debug-fontify)
+  (rainbow-delimiters-mode)
+  (rainbow-delimiters-mode))

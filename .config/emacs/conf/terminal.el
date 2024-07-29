@@ -24,6 +24,21 @@
      ;;(dedicated . t) ;dedicated is supported in emacs27
      (reusable-frames . visible) (window-height . 0.3))))
 
+
+
+(use-package eat
+  :straight
+ '(eat :type git
+       :host codeberg
+       :repo "akib/emacs-eat"
+       :files ("*.el" ("term" "term/*.el") "*.texi"
+               "*.ti" ("terminfo/e" "terminfo/e/*")
+               ("terminfo/65" "terminfo/65/*")
+               ("integration" "integration/*")
+               (:exclude ".dir-locals.el" "*-tests.el"))))
+
+
+
 (general-def
   :states 'normal
   :prefix "<leader> t"
@@ -31,4 +46,6 @@
   "o" '("Open vterm other window" . vterm-other-window)
   "h" '("Open vterm here" . vterm)
   "t" '("Toggle vterm" . vterm-toggle)
-  "b" '("Open terminal" . term))
+  "b" '("Open terminal" . term)
+  "e" '("Open eat" . eat)
+  )

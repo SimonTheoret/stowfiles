@@ -137,6 +137,8 @@
   '("Expand region" . expreg-expand)
   "c"
   '("Contract region" . expreg-contract)
+  "b"
+  '("Revert buffer" . revert-buffer-fontify)
   )
 
 ;; (general-def
