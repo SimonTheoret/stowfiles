@@ -74,8 +74,8 @@
   '("Rename" . lsp-rename)
   "f"
   '("Format buffer" . format-all-buffer)
-  "h"
-  '("Toggle inlay" . (lambda () (interactive)(progn (setq lsp-inlay-hint-enable t)(lsp-inlay-hints-mode))))
+  ;; "h"
+  ;; '("Toggle inlay" . (lambda () (interactive)(progn (setq lsp-inlay-hint-enable t)(lsp-inlay-hints-mode))))
   "k"
   '("Describe" . lsp-ui-doc-glance)
   )
