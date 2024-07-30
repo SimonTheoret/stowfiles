@@ -168,7 +168,7 @@
   "r"
   '("Deadgrep" . deadgrep)
   "a"
-  '("Locate" consult-locate)
+  '("Locate" . consult-locate)
   )
 
 (general-def
