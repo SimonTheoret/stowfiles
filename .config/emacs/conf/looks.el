@@ -128,3 +128,5 @@
     :prefix "<leader> z"
     :prefix-command 'Zen
     "z" ' ("Zen mode" . writeroom-mode)))
+
+(use-package posframe)
