@@ -167,6 +167,8 @@
   '("Hide lines" . consult-focus-lines)
   "r"
   '("Deadgrep" . deadgrep)
+  "a"
+  '("Locate" consult-locate)
   )
 
 (general-def
