@@ -91,13 +91,10 @@
   :init
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-;; (use-package nerd-icons-ibuffer
-;;   :hook (ibuffer-mode . nerd-icons-ibuffer-mode))
+(use-package nerd-icons-ibuffer
+  :hook (ibuffer-mode . nerd-icons-ibuffer-mode))
 
-;; Currently broken: https://github.com/rainstormstudio/nerd-icons-completion/issues/11
-;; TODO: Update this package
 (use-package nerd-icons-completion
-  :straight(nerd-icons-completion :type git :host github :repo "SimonTheoret/nerd-icons-completion" :branch "contrib")
   :after marginalia
   :config
   (nerd-icons-completion-mode)
