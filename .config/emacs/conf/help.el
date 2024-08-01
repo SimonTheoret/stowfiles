@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t -*- 
+;; -*- lexical-binding: t -*-
 
 
 (use-package helpful
@@ -12,3 +12,16 @@
    )
   )
 
+
+(use-package casual-calc
+  :general
+  (general-def
+    :states 'normal
+    "<leader> a c" '("Calc" . calc)
+    )
+  )
+(general-def
+  :states 'normal
+  :keymaps 'calc-mode-map
+  "C-o" '("Calc transient" . casual-calc-tmenu)
+  )

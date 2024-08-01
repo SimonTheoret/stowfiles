@@ -47,6 +47,15 @@
 
 (use-package evil-easymotion :after evil)
 
+(use-package casual-avy
+  :general
+  (general-def
+    :states
+    'normal
+    "<leader> a v"
+    '("Transient avy" . casual-avy-tmenu))
+  )
+
 (use-package
   evil-snipe
   :custom (evil-snipe-smart-case t)
@@ -73,6 +82,7 @@
   :config (which-key-mode) (setq which-key-idle-delay 0.1))
 
 (use-package expreg)
+
 
 (use-package evil-mc
   :init

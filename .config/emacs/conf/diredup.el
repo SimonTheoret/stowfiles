@@ -3,6 +3,8 @@
 
 ;; Makes dired goooood
 
+(setq dired-listing-switches "-alh")
+
 (use-package diff-hl :config (global-diff-hl-mode))
 
 (use-package diredfl :config (diredfl-global-mode))

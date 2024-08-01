@@ -80,7 +80,7 @@
   ;; available in the *Completions* buffer, add it to the
   ;; `completion-list-mode-map'.
   :bind (:map minibuffer-local-map
-         ("M-A" . marginalia-cycle))
+              ("M-A" . marginalia-cycle))
 
   ;; The :init section is always executed.
   :init
@@ -104,7 +104,8 @@
     :prefix "<leader> a"
     :prefix-command 'Actions
     "a" '("Embark act" . embark-act)
-    "d" '("Embark dwim" . embark-dwim)) ;; alternative for `describe-bindings'
+    "d" '("Embark dwim" . embark-dwim);; alternative for `describe-bindings'
+    )
 
   :init
 
@@ -140,6 +141,15 @@
 
 (use-package deadgrep)
 
+(use-package casual-re-builder
+  :general
+  (general-def
+    :states 'normal
+    :keymaps 'reb-mode-map
+    "C-o" '("Casual REbuilder" . casual-re-builder-tmenu)
+    )
+  )
+
 (general-def
   :states
   'normal
@@ -169,6 +179,8 @@
   '("Deadgrep" . deadgrep)
   "a"
   '("Locate" . consult-locate)
+  "x"
+  '("Regex Builder" . re-builder)
   )
 
 (general-def
