@@ -8,14 +8,14 @@
   magit
   :after evil-collection
   :config
- (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1) 
+  (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
+  (setq magit-todos-exclude-globs '("*.ipynb"))
   :general-config
   (general-def
     :states 'normal
     :prefix "<leader> g"
     :prefix-command 'Git
     "/" '("Magit" . magit)
-    "s" '("Magit status" . magit-status)
     "l" '("Magit status" . magit-log)
     "t" '("Git TimeMachine" . git-timemachine)
     ))
@@ -28,3 +28,16 @@
 (use-package git-modes)
 
 (use-package git-timemachine)
+
+(general-def
+  :states 'normal
+  :prefix "<leader> g s"
+  :prefix-command 'Smerge
+  "s" '("Smerge" . smerge-mode)
+  "n" '("Smerge next" . smerge-next)
+  "p" '("Smerge previous" . smerge-prev)
+  "k" '("Smerge keep current" . magit-smerge-keep-current)
+  "u" '("Smerge keep current" . magit-smerge-keep-lower)
+  "l" '("Smerge keep current" . magit-smerge-keep-upper)
+  "a" '("Smerge keep current" . magit-smerge-keep-all)
+  )
