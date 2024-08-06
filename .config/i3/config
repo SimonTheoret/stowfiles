@@ -77,14 +77,13 @@ exec_always --no-startup-id xset r rate 160 90
 floating_modifier $mod
 
 # Keyboard layout:
-exec_always --no-startup-id "setxkbmap -layout ca multix"
+exec_always --no-startup-id "setxkbmap -model pc104 -layout ca multix"
 
 # start a terminal
 bindsym $mod+m exec kitty
 
 exec --no-startup-id emacs --daemon
-# start emacs
-bindsym $mod+w exec emacsclient -nc
+# start emac $mod+w exec emacsclient -nc
 
 # start emacs daemon
 bindsym $mod+Shift+w exec --no-startup-id emacs --daemon

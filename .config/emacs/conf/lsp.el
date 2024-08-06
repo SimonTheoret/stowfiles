@@ -39,6 +39,7 @@
   (setq lsp-modeline-diagnostics-scope :workspace)
   (setq lsp-enable-on-type-formatting nil)
   (setq lsp-idle-delay 0.250)
+  (setq lsp-inlay-hint-enable nil)
   )
 
 ;; Make the help buffer smaller
@@ -78,6 +79,8 @@
   ;; '("Toggle inlay" . (lambda () (interactive)(progn (setq lsp-inlay-hint-enable t)(lsp-inlay-hints-mode))))
   "k"
   '("Describe" . lsp-ui-doc-glance)
+  "m"
+  '("Lsp Imenu" . lsp-ui-imenu)
   )
 
 ;; This function filters any diagnostics coming from the virtual env of python
