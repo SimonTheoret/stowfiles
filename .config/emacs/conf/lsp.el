@@ -39,7 +39,6 @@
   (setq lsp-modeline-diagnostics-scope :workspace)
   (setq lsp-enable-on-type-formatting nil)
   (setq lsp-idle-delay 0.250)
-  (setq lsp-inlay-hint-enable nil)
   )
 
 ;; Make the help buffer smaller
@@ -75,8 +74,6 @@
   '("Rename" . lsp-rename)
   "f"
   '("Format buffer" . format-all-buffer)
-  ;; "h"
-  ;; '("Toggle inlay" . (lambda () (interactive)(progn (setq lsp-inlay-hint-enable t)(lsp-inlay-hints-mode))))
   "k"
   '("Describe" . lsp-ui-doc-glance)
   "m"

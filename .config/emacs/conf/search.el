@@ -195,7 +195,7 @@
   "w"
   '("Manual with woman" . woman)
   "m"
-  '("Manual with woman" . man)
+  '("Manual with man" . man)
   )
 
 ;; (general-def

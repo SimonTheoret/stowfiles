@@ -48,4 +48,5 @@
   "t" '("Toggle vterm" . vterm-toggle)
   "b" '("Open terminal" . term)
   "e" '("Open eat" . eat)
+  "s" '("Shell" . shell)
   )

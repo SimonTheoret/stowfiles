@@ -20,3 +20,4 @@ alias ll='eza -alF --icons'
 alias la='eza -A --icons'
 alias l='eza -CF --icons'
 alias tree='tree -C'
+alias grsync="rsync -av --filter=':- .gitignore'"

@@ -15,7 +15,8 @@
   )
 
 (if (string= "gnu/linux" system-type)
-    (frame-transparency)
+    (if (display-graphic-p)
+	(frame-transparency))
   )
 ;; Theme
 (use-package doom-themes
@@ -53,7 +54,7 @@
 
 ;; The essential modeline
 (use-package doom-modeline
- :hook (after-init . doom-modeline-mode))
+  :hook (after-init . doom-modeline-mode))
 
 ;; use-package with package.el:
 (use-package dashboard
