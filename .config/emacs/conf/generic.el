@@ -70,4 +70,7 @@
   (revert-buffer)
   (font-lock-debug-fontify)
   (rainbow-delimiters-mode)
-  (rainbow-delimiters-mode))
+  (rainbow-delimiters-mode)
+  (hl-todo-mode)
+  (hl-todo-mode)
+  )

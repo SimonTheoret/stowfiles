@@ -12,8 +12,17 @@
   {
     "context": "Editor && vim_mode == normal && vim_operator == none",
     "bindings": {
-      "space space": "file_finder::Toggle"
+      "space space": "file_finder::Toggle",
+      "space t t": "terminal_panel::ToggleFocus"
       // "space p p": ""
     }
   }
+  // {
+  //   "context": "Terminal",
+  //   "bindings": {
+  //     "space space": "file_finder::Toggle",
+  //     "space t t": "terminal_panel::ToggleFocus"
+  //     // "space p p": ""
+  //   }
+  // }
 ]

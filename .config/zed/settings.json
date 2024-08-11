@@ -19,7 +19,7 @@
   "base_keymap": "VSCode",
   "vim_mode": true,
   "ui_font_size": 13,
-  "buffer_font_size": 12,
+  "buffer_font_size": 13,
   "theme": {
     "mode": "system",
     "light": "KTRZ Monokai",
