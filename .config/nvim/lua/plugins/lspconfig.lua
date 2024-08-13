@@ -45,7 +45,7 @@ return {
                         allFeatures = true,
                     },
                     files = {
-                        excludeDirs = { os.getenv("HOME").."/.cargo" }
+                        excludeDirs = { os.getenv("HOME").."/.cargo/" }
                     }
                 },
             },
@@ -144,13 +144,13 @@ return {
 
                 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = "Lsp signature", buffer = ev.buf })
 
-                vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder,
+                vim.keymap.set('n', '<leader>cf', vim.lsp.buf.add_workspace_folder,
                     { desc = "Lsp add workspace folder", buffer = ev.buf })
 
-                vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder,
+                vim.keymap.set('n', '<leader>cr', vim.lsp.buf.remove_workspace_folder,
                     { desc = "Lsp remove workspace folder", buffer = ev.buf })
 
-                vim.keymap.set('n', '<space>wl', function()
+                vim.keymap.set('n', '<leader>cll', function()
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, { desc = "Lsp list workspace folders", buffer = ev.buf })
 
@@ -179,7 +179,7 @@ return {
                 vim.keymap.set('n', '<leader>co', function() require('telescope.builtin').lsp_outgoing_calls() end,
                     { desc = "LSP outgoing calls", buffer = ev.buf })
 
-                vim.keymap.set('n', '<leader>ci', function() require('telescope.builtin').lsp_incoming_calls() end,
+                vim.keymap.set('n', '<leader>cs', function() require('telescope.builtin').lsp_incoming_calls() end,
                     { desc = "LSP incoming calls", buffer = ev.buf })
 
                 vim.keymap.set('n', '<leader>fq', function() require('telescope.builtin').diagnostics() end,
