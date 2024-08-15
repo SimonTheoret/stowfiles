@@ -7,12 +7,17 @@ return {
         -- Only one of these is needed, not both.
         "nvim-telescope/telescope.nvim", -- optional
     },
-    config = true,
+    config = function()
+        local neogit = require("neogit")
+        neogit.setup {
+            graph_style = "unicode"
+        }
+    end,
     keys = {
         {
             "<leader>g/",
             function()
-                require('neogit').open()
+                require('neogit').open({ kind = "auto" })
             end,
             desc = "Neogit"
         },

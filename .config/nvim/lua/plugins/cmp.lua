@@ -81,6 +81,7 @@ return {
                     end
                 end, { "i", "s" }),
 
+                ["<C-e>"] = cmp.mapping.abort(),
                 -- ... Your other mappings ...
             },
             sources = cmp.config.sources({
