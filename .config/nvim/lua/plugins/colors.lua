@@ -7,8 +7,7 @@
 --     vim.cmd[[colorscheme tokyonight-night]]
 --      Color_is = "tokyonight"
 --   end
---
--- -- }
+-- }
 -- return {
 --     "catppuccin/nvim",
 --     name = "catppuccin",

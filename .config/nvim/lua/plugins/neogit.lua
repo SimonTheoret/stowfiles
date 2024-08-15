@@ -1,7 +1,7 @@
 return {
     "NeogitOrg/neogit",
     dependencies = {
-        "nvim-lua/plenary.nvim", -- required
+        "nvim-lua/plenary.nvim",  -- required
         "sindrets/diffview.nvim", -- optional - Diff integration
 
         -- Only one of these is needed, not both.
@@ -11,10 +11,15 @@ return {
     keys = {
         {
             "<leader>g/",
-            function ()
+            function()
                 require('neogit').open()
             end,
             desc = "Neogit"
         },
+        {
+            "<leader>g?",
+            ":Neogit help<CR>",
+            desc = "Neogit help"
+        }
     },
 }

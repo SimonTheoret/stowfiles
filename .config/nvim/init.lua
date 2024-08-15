@@ -32,7 +32,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.foldlevel = 99
 vim.opt.indentkeys = "0{,0},0),0],:,0#,!^F,O,e"
 
-vim.o.conceallevel = 3
+vim.go.conceallevel = 3
 
 vim.opt.swapfile = false
 vim.opt.backup = false
