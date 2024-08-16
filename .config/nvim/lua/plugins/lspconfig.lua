@@ -1,5 +1,8 @@
 return {
     "neovim/nvim-lspconfig",
+    -- dependencies = {
+    --     'nvimdev/lspsaga.nvim',
+    -- },
     config = function()
         -- local util = require("vim.lsp.util")
         -- -- The function that replace those quirky html symbols.
@@ -200,7 +203,7 @@ return {
                 vim.keymap.set('n', 'gd', function() require('telescope.builtin').lsp_definitions() end,
                     { desc = "LSP definition", buffer = ev.buf })
 
-                vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "Lsp informations", buffer = ev.buf })
+                vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', { desc = "Lsp informations", buffer = ev.buf })
 
                 vim.keymap.set('n', 'gI', function() require('telescope.builtin').lsp_implementations() end,
                     { desc = "LSP implementations", buffer = ev.buf })
