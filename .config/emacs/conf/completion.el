@@ -55,6 +55,8 @@
     :prefix "<leader> i"
     :prefix-command 'Insert
     "s" '("Insert snippet" . yas-insert-snippet)))
+
+(use-package yasnippet-snippets)
 ;; :config
 ;; (evil-global-set-key 'normal (kbd "<leader> i s") 'yas-insert-snippet))
 

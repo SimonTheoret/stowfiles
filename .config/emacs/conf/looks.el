@@ -9,7 +9,6 @@
 ;;   :init
 ;;   (smooth-scrolling-mode 1))
 (defun frame-transparency ()
-  """"""
   (set-frame-parameter nil 'alpha-background 70)
   (add-to-list 'default-frame-alist '(alpha-background . 70))
   )
