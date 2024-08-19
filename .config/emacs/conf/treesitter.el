@@ -22,6 +22,7 @@
 ;; (treesit-install-language-grammar 'go)
 ;; (treesit-install-language-grammar 'python)
 
+
 (setq treesit-font-lock-level 3)
 (treesit-font-lock-recompute-features)
 
@@ -30,6 +31,7 @@
 	(rust-mode . rust-ts-mode)
 	(go-mode . go-ts-mode)
 	(dockerfile-mode . dockerfile-ts-mode)))
+
 
 (defun set-font-level-ts (level)
   "Modify font lock level in Tree-sitter."

@@ -14,9 +14,8 @@
   )
 
 (if (string= "gnu/linux" system-type)
-    (if (display-graphic-p)
-	(frame-transparency))
-  )
+	(frame-transparency)
+ )
 ;; Theme
 (use-package doom-themes
   :config
