@@ -4,6 +4,9 @@
 
 ;; git magic!
 
+;; Ediff
+(setq ediff-window-setup-function #'ediff-setup-windows-plain)
+
 ;; magit
 (use-package
   magit
@@ -38,7 +41,7 @@
   "n" '("SMerge next" . smerge-next)
   "p" '("SMerge previous" . smerge-prev)
   "k" '("SMerge keep current" . smerge-keep-current)
-  "u" '("SMerge keep lower" . smerge-keep-lower)
-  "l" '("SMerge keep upper" . smerge-keep-upper)
+  "l" '("SMerge keep lower" . smerge-keep-lower)
+  "u" '("SMerge keep upper" . smerge-keep-upper)
   "a" '("SMerge keep all" . smerge-keep-all)
-  )
+ )
