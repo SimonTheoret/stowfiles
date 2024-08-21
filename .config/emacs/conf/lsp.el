@@ -23,7 +23,7 @@
   :commands (lsp lsp-deferred)
   :config
   (setq lsp-ui-sideline-show-code-actions t)
-  (setq lsp-headerline-breadcrumb-enable nil)
+  (setq lsp-headerline-breadcrumb-enable t)
   (setq lsp-lens-enable nil)
   (lsp-signature-mode t)
   (setq lsp-eldoc-enable-hover t)
