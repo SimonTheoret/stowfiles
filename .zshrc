@@ -31,6 +31,8 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export PATH="$PATH:/home/simon/.local/bin"
 export PATH="$PATH:/home/simon/bin"
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/home/simon/go/bin"
 
 # Zoxide "init"
 eval "$(zoxide init zsh)"
