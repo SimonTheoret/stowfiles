@@ -203,7 +203,7 @@ return {
                 vim.keymap.set('n', 'gd', function() require('telescope.builtin').lsp_definitions() end,
                     { desc = "LSP definition", buffer = ev.buf })
 
-                vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', { desc = "Lsp informations", buffer = ev.buf })
+                vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', { desc = "Lsp informations", buffer = ev.buf })
 
                 vim.keymap.set('n', 'gI', function() require('telescope.builtin').lsp_implementations() end,
                     { desc = "LSP implementations", buffer = ev.buf })

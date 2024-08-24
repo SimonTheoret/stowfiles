@@ -78,7 +78,7 @@ floating_modifier $mod
 
 # Keyboard layout:
 exec_always --no-startup-id "setxkbmap -model pc104 -layout us,ca multix"
-exec_always "setxkbmap -option 'grp:alt_shift_toggle'"
+exec_always --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle'"
 
 # start a terminal
 bindsym $mod+m exec kitty
