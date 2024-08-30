@@ -169,6 +169,9 @@ return {
             },
         })
 
+        -- Gleam lsp
+        lspconfig.gleam.setup({})
+
         -- Nix lsp
         lspconfig.nil_ls.setup({})
 
