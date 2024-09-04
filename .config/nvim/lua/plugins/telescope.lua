@@ -36,6 +36,13 @@ return {
                     override_file_sorter = true,    -- override the file sorter
                     case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
                     -- the default case_mode is "smart_case"
+                },
+                file_browser = {
+                    theme = "ivy",
+                    -- disables netrw and use telescope-file-browser in its place
+                    hijack_netrw = true,
+                    respect_gitignore = false,
+                    hidden = true,
                 }
             }
         })
@@ -44,8 +51,8 @@ return {
         --         borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
         --     }
         -- })
-        t.load_extension('projects')
         t.load_extension('fzf')
+        t.load_extension('file_browser')
     end,
     keys = {
         {
@@ -105,5 +112,11 @@ return {
             function() require("telescope.builtin").current_buffer_fuzzy_find() end,
             desc = 'Telescope current buffer fuzzy'
         },
+        {
+            '<leader>fy',
+            function() require("telescope").extensions.file_browser.file_browser() end,
+            desc = 'Telescope file browser'
+        },
+
     }
 }
