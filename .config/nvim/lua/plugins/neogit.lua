@@ -28,14 +28,26 @@ return {
             ":Neogit help<CR>",
             desc = "Neogit help"
         },
-        { "<leader>gs", function()
-            require('fzf-lua').git_status()
-        end },
-        { "<leader>gc", function()
-            require('fzf-lua').git_commits()
-        end },
-        { "<leader>gt", function()
-            require('fzf-lua').git_stash()
-        end },
+        {
+            "<leader>gs",
+            function()
+                require('fzf-lua').git_status()
+            end,
+            desc = "List git status"
+        },
+        {
+            "<leader>gc",
+            function()
+                require('fzf-lua').git_commits()
+            end,
+            desc = "List commits"
+        },
+        {
+            "<leader>gt",
+            function()
+                require('fzf-lua').git_stash()
+            end,
+            desc = "Git stash"
+        },
     },
 }
