@@ -33,6 +33,10 @@ export PATH="$PATH:/home/simon/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/home/simon/go/bin"
+export PATH=/home/simon/.cache/rebar3/bin:$PATH
+export PATH="$PATH:/opt/nvim-linux64/bin"
+
+. "$HOME/.asdf/asdf.sh"
 
 # Zoxide "init"
 eval "$(zoxide init zsh)"

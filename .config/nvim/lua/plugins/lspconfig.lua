@@ -4,68 +4,6 @@ return {
     --     'nvimdev/lspsaga.nvim',
     -- },
     config = function()
-        -- local util = require("vim.lsp.util")
-        -- -- The function that replace those quirky html symbols.
-        -- local function split_lines(value)
-        --     value = string.gsub(value, "&nbsp;", " ")
-        --     value = string.gsub(value, "&gt;", ">")
-        --     value = string.gsub(value, "&lt;", "<")
-        --     value = string.gsub(value, "\\", "")
-        --     value = string.gsub(value, "```python", "")
-        --     value = string.gsub(value, "```", "")
-        --     return vim.split(value, "\n", { plain = true, trimempty = true })
-        -- end
-        --
-        -- -- The function name is the same as what you found in the neovim repo.
-        -- -- I just remove those unused codes.
-        -- -- Actually, this function doesn't "convert input to markdown".
-        -- -- I just keep the function name the same for reference.
-        -- local function convert_input_to_markdown_lines(input, contents)
-        --     contents = contents or {}
-        --     assert(type(input) == "table", "Expected a table for LSP input")
-        --     if input.kind then
-        --         local value = input.value or ""
-        --         vim.list_extend(contents, split_lines(value))
-        --     end
-        --     if (contents[1] == "" or contents[1] == nil) and #contents == 1 then
-        --         return {}
-        --     end
-        --     return contents
-        -- end
-        --
-        -- -- The overwritten hover function that pyright uses.
-        -- -- Note that other language server can use the default one.
-        -- local function hover(_, result, ctx, config)
-        --     config = config or {}
-        --     config.focus_id = ctx.method
-        --     if vim.api.nvim_get_current_buf() ~= ctx.bufnr then
-        --         -- Ignore result since buffer changed. This happens for slow language servers.
-        --         return
-        --     end
-        --     if not (result and result.contents) then
-        --         if config.silent ~= true then
-        --             vim.notify("No information available")
-        --         end
-        --         return
-        --     end
-        --     local contents ---@type string[]
-        --     contents = convert_input_to_markdown_lines(result.contents)
-        --     if vim.tbl_isempty(contents) then
-        --         if config.silent ~= true then
-        --             vim.notify("No information available")
-        --         end
-        --         return
-        --     end
-        --     -- Notice here. The "plaintext" string was originally "markdown".
-        --     -- The reason of using "plaintext" instead of "markdown" is becasue
-        --     -- of the bracket characters ([]). Markdown will hide single bracket,
-        --     -- so when your docstrings consist of numpy or pytorch or python list,
-        --     -- you will get garbadge hover results.
-        --     -- The bad side of "plaintext" is that you never get syntax highlighting.
-        --     -- I personally don't care about this.
-        --     return util.open_floating_preview(contents, "plaintext", config)
-        -- end
-        -- setups LSPs
         local lspconfig = require('lspconfig')
 
         -- Set up cmp with lspconfig.
@@ -118,6 +56,7 @@ return {
         })
         -- Lua lsp
         lspconfig.lua_ls.setup {
+            capabilities = capabilities,
             on_init = function(client)
                 local path = client.workspace_folders[1].name
                 if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
@@ -170,22 +109,34 @@ return {
         })
 
         -- Gleam lsp
-        lspconfig.gleam.setup({})
+        lspconfig.gleam.setup({
+
+            capabilities = capabilities,
+        })
 
         -- Nix lsp
         lspconfig.nil_ls.setup({})
 
         -- Latex Texlab
-        lspconfig.texlab.setup({})
+        lspconfig.texlab.setup({
 
-        -- markdown
-        lspconfig.marksman.setup({})
+            capabilities = capabilities,
+        })
+
+        -- -- markdown
+        -- lspconfig.marksman.setup({})
 
         -- bash lsp
-        lspconfig.bashls.setup({})
+        lspconfig.bashls.setup({
+
+            capabilities = capabilities,
+        })
 
         -- clang lsp
-        lspconfig.clangd.setup({})
+        lspconfig.clangd.setup({
+
+            capabilities = capabilities,
+        })
 
         vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { desc = "diagnostic" })
         vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, { desc = "loclist" })
@@ -206,7 +157,8 @@ return {
                 vim.keymap.set('n', 'gd', function() require('telescope.builtin').lsp_definitions() end,
                     { desc = "LSP definition", buffer = ev.buf })
 
-                vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', { desc = "Lsp informations", buffer = ev.buf })
+                vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>',
+                    { desc = "Lsp informations", buffer = ev.buf })
 
                 vim.keymap.set('n', 'gI', function() require('telescope.builtin').lsp_implementations() end,
                     { desc = "LSP implementations", buffer = ev.buf })
