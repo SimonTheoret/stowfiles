@@ -5,10 +5,11 @@ return {
         "rcarriga/nvim-dap-ui",
         'mfussenegger/nvim-dap-python',
         "Joakker/lua-json5",
+        "ibhagwan/fzf-lua",
     },
     config = function()
         local dap = require("dap")
-        require('dap.ext.vscode').json_decode = require'json5'.parse
+        require('dap.ext.vscode').json_decode = require 'json5'.parse
         dap.configurations.rust = {
             {
                 name = "Launch",
@@ -45,6 +46,20 @@ return {
                 widgets.centered_float(widgets.scopes)
             end,
             desc = "DAP scopes"
+        },
+        {
+            "<leader>dl",
+            function()
+                require('fzf-lua').dap_command()
+            end,
+            desc = "List dap command"
+        },
+        {
+            "<leader>db",
+            function()
+                require('fzf-lua').dap_breakpoints()
+            end,
+            desc = "List dap breakpoints"
         },
     },
     lazy = true

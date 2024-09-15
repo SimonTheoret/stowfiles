@@ -5,28 +5,27 @@ return {
         local t = require("telescope")
         t.setup({
             pickers = {
-                find_files = { theme = "ivy", layout_config = { height = 0.4 } },
-                git_files = { theme = "ivy", layout_config = { height = 0.4 } },
-                live_files = { theme = "ivy", layout_config = { height = 0.4 } },
-                live_grep = { theme = "ivy", layout_config = { height = 0.4 } },
-                buffers = { theme = "ivy", layout_config = { height = 0.4 } },
-                help_tags = { theme = "ivy", layout_config = { height = 0.4 } },
-                vim_options = { theme = "ivy", layout_config = { height = 0.4 } },
-                commands = { theme = "ivy", layout_config = { height = 0.4 } },
-                projects = { theme = "ivy", layout_config = { height = 0.4 } },
-                keymaps = { theme = "ivy", layout_config = { height = 0.4 } },
-                diagnostics = { theme = "ivy", layout_config = { height = 0.4 } },
-                current_buffer_fuzzy_find = { theme = "ivy", layout_config = { height = 0.4 } },
-                lsp_references = { theme = "ivy", layout_config = { height = 0.4 } },
-                lsp_incoming_calls = { theme = "ivy", layout_config = { height = 0.4 } },
-                lsp_outgoing_calls = { theme = "ivy", layout_config = { height = 0.4 } },
-                lsp_document_symbols = { theme = "ivy", layout_config = { height = 0.4 } },
-                lsp_workspace_symbols = { theme = "ivy", layout_config = { height = 0.4 } },
-                lsp_dynamic_workspace_symbols = { theme = "ivy", layout_config = { height = 0.4 } },
-                lsp_diagnostics = { theme = "ivy", layout_config = { height = 0.4 } },
-                lsp_lsp_implementations = { theme = "ivy", layout_config = { height = 0.4 } },
-                lsp_definitions = { theme = "ivy", layout_config = { height = 0.4 } },
-                lsp_type_definitions = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- find_files = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- git_files = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- live_files = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- live_grep = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- buffers = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- help_tags = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- vim_options = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- commands = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- keymaps = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- diagnostics = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- current_buffer_fuzzy_find = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- lsp_references = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- lsp_incoming_calls = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- lsp_outgoing_calls = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- lsp_document_symbols = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- lsp_workspace_symbols = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- lsp_dynamic_workspace_symbols = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- lsp_diagnostics = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- lsp_lsp_implementations = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- lsp_definitions = { theme = "ivy", layout_config = { height = 0.4 } },
+                -- lsp_type_definitions = { theme = "ivy", layout_config = { height = 0.4 } },
             },
 
             extensions = {
@@ -38,7 +37,7 @@ return {
                     -- the default case_mode is "smart_case"
                 },
                 file_browser = {
-                    theme = "ivy",
+                    -- theme = "ivy",
                     -- disables netrw and use telescope-file-browser in its place
                     hijack_netrw = true,
                     respect_gitignore = false,
@@ -101,11 +100,6 @@ return {
             '<leader>fc',
             function() require('telescope.builtin').commands() end,
             desc = "Telescope commands"
-        },
-        {
-            '<leader>fp',
-            function() require("telescope").extensions.projects.projects {} end,
-            desc = 'Telescope projects'
         },
         {
             '<leader>fl',

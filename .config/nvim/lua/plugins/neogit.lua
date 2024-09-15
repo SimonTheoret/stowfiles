@@ -6,6 +6,7 @@ return {
 
         -- Only one of these is needed, not both.
         "nvim-telescope/telescope.nvim", -- optional
+        "ibhagwan/fzf-lua",
     },
     config = function()
         local neogit = require("neogit")
@@ -26,6 +27,15 @@ return {
             "<leader>g?",
             ":Neogit help<CR>",
             desc = "Neogit help"
-        }
+        },
+        { "<leader>gs", function()
+            require('fzf-lua').git_status()
+        end },
+        { "<leader>gc", function()
+            require('fzf-lua').git_commits()
+        end },
+        { "<leader>gt", function()
+            require('fzf-lua').git_stash()
+        end },
     },
 }
