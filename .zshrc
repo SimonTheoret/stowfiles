@@ -84,3 +84,5 @@ vterm_printf() {
         printf "\e]%s\e\\" "$1"
     fi
 }
+bindkey -r '^T'
+bindkey '^F' fzf-file-widget
